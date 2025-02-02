@@ -1,6 +1,6 @@
 import React from 'react';
 
-const CommunityPage: React.FC = () => {
+const Community: React.FC = () => {
     return (
         <div>
             <h1>Community</h1>
@@ -8,4 +8,4 @@ const CommunityPage: React.FC = () => {
     );
 };
 
-export default CommunityPage;
+export default Community;

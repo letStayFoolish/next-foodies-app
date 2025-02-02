@@ -1,6 +1,6 @@
 import React from 'react';
 
-const MealsPage: React.FC = () => {
+const Meals: React.FC = () => {
     return (
         <div>
             <h1>Meals</h1>
@@ -8,4 +8,4 @@ const MealsPage: React.FC = () => {
     );
 };
 
-export default MealsPage;
+export default Meals;

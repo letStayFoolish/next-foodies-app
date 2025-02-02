@@ -18,23 +18,9 @@ const Home: React.FC = ()=> {
               <li>
                   <Link href="/community" >Community</Link>
               </li>
-              <li>
-                  <Link href="/meals/meal-1" >Meal 1</Link>
-              </li>
-              <li>
-                  <Link href="/meals/meal-2" >Meal 2</Link>
-              </li>
           </ul>
       </main>
   );
 }
 
 export default Home;
-
-/**
- * New routes:
- * /meals
- * /meals/share
- * /community
- * /meals/[slug]
- */

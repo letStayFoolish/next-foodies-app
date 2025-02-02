@@ -1,6 +1,6 @@
 import React from 'react';
 
-const ShareMealPage: React.FC = () => {
+const Share: React.FC = () => {
     return (
         <div>
             <h1>Share Meal</h1>
@@ -8,4 +8,4 @@ const ShareMealPage: React.FC = () => {
     );
 };
 
-export default ShareMealPage;
+export default Share;
