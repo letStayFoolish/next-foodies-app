@@ -1,15 +1,19 @@
 import React from 'react';
 
 type Props = {
-    params: {
+    params: Promise<{
         slug: string
-    }
+    }>
 }
 
-const Meal: React.FC<Props> = ({params}) => {
+const Meal: React.FC<Props> = async ({params}) => {
+    const paramsPromise = await params.catch(() => ({slug: 'not-found'}));
+
+    const {slug} = paramsPromise;
+
     return (
         <div>
-            <h1>{params.slug}</h1>
+            <h1>{slug}</h1>
         </div>
     );
 };

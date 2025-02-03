@@ -2,7 +2,7 @@ import React from 'react';
 import classes from "./meal-item.module.css"
 import Image from "next/image";
 import Link from "next/link";
-import {TMeal} from "@/app/types";
+import {TMeal} from "@/types";
 
 type Props = Omit<TMeal, "id">
 
