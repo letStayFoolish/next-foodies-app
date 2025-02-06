@@ -22,3 +22,12 @@ export async function fetchMeals():  Promise<TMeal[] | null> {
         return null;
     }
 }
+
+export async function getMeal (slug: string): Promise<TMeal | undefined> {
+    try {
+        return db.prepare("SELECT * FROM meals WHERE slug = ?").get(slug) as TMeal;
+    }
+    catch(error: any) {
+        console.log(error);
+    }
+}
