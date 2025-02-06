@@ -7,7 +7,6 @@ type Props = {
 const MealsLayout: React.FC<Props> = ({children}) => {
     return (
         <>
-         <p>Meals Layout</p>
             {children}
         </>
     );
