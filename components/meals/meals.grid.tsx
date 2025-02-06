@@ -25,3 +25,4 @@ const MealsGrid: React.FC<Props> = ({meals}) => {
 };
 
 export default MealsGrid;
+
