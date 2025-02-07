@@ -6,7 +6,7 @@ import LoadingMeals from "@/components/meals/loading";
 import {fetchMeals} from "@/lib/meals";
 
 
-const MealsComponent = async () => {
+const Meals = async () => {
     const meals = await fetchMeals()
 
     return meals && <MealsGrid meals={meals}/>
@@ -24,8 +24,7 @@ const MealsPage: React.FC =  () => {
          </header>
          <main className={classes.main}>
              <Suspense fallback={<LoadingMeals />}>
-                 <MealsComponent />
-             {/*{meals && <MealsGrid meals={meals} />}*/}
+                 <Meals />
              </Suspense>
          </main>
      </>
