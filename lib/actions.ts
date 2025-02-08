@@ -4,8 +4,9 @@ import {saveMeal} from "@/lib/meals";
 import {redirect} from "next/navigation";
 import {isInvalidText} from "@/lib/utils";
 import type {TImage} from "@/types";
+import {revalidatePath} from "next/cache";
 
-export const shareMealAction = async (prevState, formData: FormData): Promise<{ message: string | null }> => {
+export const shareMealAction = async (prevState: any, formData: FormData): Promise<{ message: string | null }> => {
     const meal = {
         title: formData.get("title") as string,
         summary: formData.get("summary") as string,
@@ -44,6 +45,10 @@ export const shareMealAction = async (prevState, formData: FormData): Promise<{ 
     }
 
     await saveMeal(meal)
+
+    // Revalidate cache
+    revalidatePath("/meals", "page") // page is default
+    // revalidatePath("/meals", "layout") // layout - all nested pages will be revalidated as well
 
     redirect("/meals")
 

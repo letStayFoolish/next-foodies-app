@@ -1,5 +1,5 @@
 import sql from "better-sqlite3"
-import {TImage, TMeal} from "@/types";
+import type {TImage, TMeal} from "@/types";
 import slugify from "slugify";
 import xss from "xss";
 import fs from "node:fs" // file system
@@ -18,7 +18,7 @@ export async function fetchMeals(): Promise<TMeal[] | null> {
         }
 
         return response;
-    } catch (error: any) {
+    } catch (error: any | unknown) {
         console.log(error);
 
         return null;
@@ -28,7 +28,7 @@ export async function fetchMeals(): Promise<TMeal[] | null> {
 export async function getMeal(slug: string): Promise<TMeal | undefined> {
     try {
         return db.prepare("SELECT * FROM meals WHERE slug = ?").get(slug) as TMeal;
-    } catch (error: any) {
+    } catch (error: any | unknown) {
         console.log(error);
     }
 }
@@ -48,7 +48,7 @@ export async function saveMeal(meal: Omit<TMeal, "id">) {
         const bufferedImage = await (meal.image as TImage).arrayBuffer()
 
         // Save image to public folder
-        stream.write(Buffer.from(bufferedImage), (error: any) => {
+        stream.write(Buffer.from(bufferedImage), (error: any | unknown) => {
             if (error) {
                 throw new Error("Saving image failed!")
             }
@@ -63,7 +63,7 @@ export async function saveMeal(meal: Omit<TMeal, "id">) {
         `).run(meal)
 
 
-    } catch (error: any) {
+    } catch (error: any | unknown) {
         console.log(error);
     }
 }

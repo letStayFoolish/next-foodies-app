@@ -8,10 +8,11 @@ import MealsFormSubmit from "@/components/meals/meals-form-submit";
 
 const Share: React.FC = () => {
 
+    /**
+     * In earlier React Canary versions, this API was part of React DOM and called useFormState.
+     */
     const [state, formAction,] = useActionState(shareMealAction, {message: null});
-
-    console.log({state})
-
+    
     return (
         <>
             <header className={classes.header}>

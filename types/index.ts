@@ -19,3 +19,5 @@ export type TImage = {
 export type MealResponse = {
     meals: TMeal[]
 };
+
+export type TError = string | Error | { message: string };

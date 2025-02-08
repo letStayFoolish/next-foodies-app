@@ -3,7 +3,7 @@
 import React from 'react';
 
 type Props = {
-    error: any
+    error: any | unknown
 }
 
 const Error: React.FC<Props> = ({error}) => {

@@ -12,7 +12,7 @@ const MealItem: React.FC<Props> = ({image, slug, creator, summary, title}) => {
             <header>
                 <div className={classes.image}>
                     {/*We can use "fill" prop instead of width/height whenever we have an image where we do not know dimensions in advance (while build time)*/}
-                    <Image src={image} alt={title} fill />
+                    <Image src={image as string} alt={title} fill/>
                 </div>
                 <div className={classes.headerText}>
                     <h2>{title}</h2>

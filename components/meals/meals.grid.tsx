@@ -8,13 +8,11 @@ type Props = {
 }
 
 const MealsGrid: React.FC<Props> = ({meals}) => {
-    console.log({meals})
-
     return (
         <ul className={classes.meals}>
             {meals.map((meal) => (
                 <li
-                key={meal.id}
+                    key={meal.id}
                 >
                     <MealItem {...meal} />
                 </li>
