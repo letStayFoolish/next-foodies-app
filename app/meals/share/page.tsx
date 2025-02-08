@@ -1,10 +1,17 @@
-import React from 'react';
+"use client"
+
+import React, {useActionState} from 'react';
 import classes from "./page.module.css"
 import {ImagePicker} from "@/components/meals/image-picker";
 import {shareMealAction} from "@/lib/actions";
 import MealsFormSubmit from "@/components/meals/meals-form-submit";
 
 const Share: React.FC = () => {
+
+    const [state, formAction,] = useActionState(shareMealAction, {message: null});
+
+    console.log({state})
+
     return (
         <>
             <header className={classes.header}>
@@ -14,7 +21,7 @@ const Share: React.FC = () => {
                 <p>Or any other meal you feel needs sharing!</p>
             </header>
             <main className={classes.main}>
-                <form className={classes.form} action={shareMealAction}>
+                <form className={classes.form} action={formAction}>
                     <div className={classes.row}>
                         <p>
                             <label htmlFor="name">Your name</label>
@@ -42,8 +49,8 @@ const Share: React.FC = () => {
                         ></textarea>
                     </p>
                     <ImagePicker label="Your image" name="image"/>
+                    {state.message && <p>{state.message}</p>}
                     <p className={classes.actions}>
-                        {/*<button type="submit">Share Meal</button>*/}
                         <MealsFormSubmit/>
                     </p>
                 </form>
