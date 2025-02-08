@@ -12,6 +12,8 @@ export type TMeal = {
 export type TImage = {
     name: string;
     arrayBuffer: () => Promise<string> // ??
+    size: number;
+    type: string;
 };
 
 export type MealResponse = {
