@@ -33,7 +33,7 @@ export async function getMeal(slug: string): Promise<TMeal | undefined> {
     }
 }
 
-export async function saveMeal(meal: TMeal) {
+export async function saveMeal(meal: Omit<TMeal, "id">) {
     try {
         meal.slug = slugify(meal.title, {lower: true});
         meal.instructions = xss(meal.instructions as string);
@@ -49,7 +49,7 @@ export async function saveMeal(meal: TMeal) {
 
         // Save image to public folder
         stream.write(Buffer.from(bufferedImage), (error: any) => {
-            if(error) {
+            if (error) {
                 throw new Error("Saving image failed!")
             }
         })
@@ -57,10 +57,9 @@ export async function saveMeal(meal: TMeal) {
         meal.image = `/images/${fileName}`
 
         db.prepare(`
-        INSERT INTO meals 
-            (title, summary, instructions, creator, creator_email, image, slug) 
-        VALUES 
-            (@title, @summary, @instructions, @creator, @creator_email, @image, @slug)
+            INSERT INTO meals
+                (title, summary, instructions, creator, creator_email, image, slug)
+            VALUES (@title, @summary, @instructions, @creator, @creator_email, @image, @slug)
         `).run(meal)
 
 

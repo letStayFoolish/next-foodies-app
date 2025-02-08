@@ -2,6 +2,7 @@ import React from 'react';
 import classes from "./page.module.css"
 import {ImagePicker} from "@/components/meals/image-picker";
 import {shareMealAction} from "@/lib/actions";
+import MealsFormSubmit from "@/components/meals/meals-form-submit";
 
 const Share: React.FC = () => {
     return (
@@ -43,7 +44,8 @@ const Share: React.FC = () => {
                     </p>
                     <ImagePicker label="Your image" name="image"/>
                     <p className={classes.actions}>
-                        <button type="submit">Share Meal</button>
+                        {/*<button type="submit">Share Meal</button>*/}
+                        <MealsFormSubmit />
                     </p>
                 </form>
             </main>

@@ -4,7 +4,7 @@ export type TMeal = {
     image: TImage | string;
     summary: string;
     creator: string;
-    slug: string;
+    slug?: string;
     instructions?: string
     creator_email?: string;
 };
